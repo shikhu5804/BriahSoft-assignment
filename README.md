@@ -2,9 +2,6 @@
 
 A React-based web application that allows users to analyze GitHub profiles, view repositories, and visualize contribution patterns. Built with React, TypeScript, and Vite.
 
-![GitHub Profile Analyzer](public/Screenshot.png)
-
-
 
 ## Features
 
