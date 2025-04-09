@@ -10,6 +10,8 @@ type Repo = {
 
 type Props = {
   repos: Repo[];
+  onRepoSelect?: () => void; 
+
 };
 
 export default function RepoList({ repos }: Props) {
@@ -20,6 +22,8 @@ export default function RepoList({ repos }: Props) {
   }
 
   return (
+    <>
+    <h1 className="font-bold mt-10">List of Repositories</h1>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {repos.map((repo) => (
         <Card key={repo.id} className="bg-gray-800 border-gray-700">
@@ -39,5 +43,6 @@ export default function RepoList({ repos }: Props) {
         </Card>
       ))}
     </div>
+    </>
   );
 }

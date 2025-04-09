@@ -9,14 +9,19 @@ type Props = {
 export default function UsernameInput({ onFetchRepos }: Props) {
   const [username, setUsername] = useState("");
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); 
+    onFetchRepos(username);
+  };
+
   return (
-    <div className="flex gap-2 w-full max-w-md mx-auto mt-8">
+    <form onSubmit={handleSubmit} className="flex gap-2 w-full max-w-md mx-auto mt-8">
       <Input
         placeholder="Enter GitHub username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <Button onClick={() => onFetchRepos(username)}>Fetch</Button>
-    </div>
+      <Button type="submit">Fetch</Button>
+    </form>
   );
 }
