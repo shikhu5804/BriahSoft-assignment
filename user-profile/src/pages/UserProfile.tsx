@@ -20,11 +20,11 @@ const UserProfile = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
-  const [apiError, setApiError] = useState('');
+  const [apiError, setApiError] = useState("");
 
   const fetchRepos = async (username: string) => {
     setLoading(true);
-    setApiError('');
+    setApiError("");
 
     const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
     console.log(GITHUB_TOKEN);
@@ -57,7 +57,8 @@ const UserProfile = () => {
         login: userData.login,
       });
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Error fetching data";
+      const message =
+        error instanceof Error ? error.message : "Error fetching data";
       setApiError(message);
       setRepos([]);
       setUser(null);
@@ -69,25 +70,23 @@ const UserProfile = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-6">
       <div className="text-center mb-12">
-  <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
-    <span className="inline-block bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-gradient">
-      GitHub Profile Analyzer
-    </span>
-  </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+          <span className="inline-block bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-gradient">
+            GitHub Profile Analyzer
+          </span>
+        </h1>
 
-  <p className="text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4">
-    Dive deep into any GitHub user's profile. Visualize their repositories,
-    activity charts, and yearly contributions — all in one clean interface.
-  </p>
-</div>
-
+        <p className="text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4">
+          Dive deep into any GitHub user's profile. Visualize their
+          repositories, activity charts, and yearly contributions — all in one
+          clean interface.
+        </p>
+      </div>
 
       <UsernameInput onFetchRepos={fetchRepos} />
 
       {apiError && (
-        <div className="text-center py-4 text-red-400">
-          {apiError}
-        </div>
+        <div className="text-center py-4 text-red-400">{apiError}</div>
       )}
 
       {loading ? (
@@ -110,7 +109,9 @@ const UserProfile = () => {
               <ContributionGraph username={user.login} />
 
               <RepoList repos={repos} onRepoSelect={() => {}} />
-                <h3 className="text-zinc-400 mt-10 text-center">Created by Shikhar</h3>
+              <h3 className="text-zinc-400 mt-10 text-center">
+                Created by Shikhar
+              </h3>
             </>
           )}
         </>

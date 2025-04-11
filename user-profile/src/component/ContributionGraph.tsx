@@ -84,7 +84,7 @@ export default function ContributionGraph({ username }: { username: string }) {
     < >
     <h1 className="font-bold mt-10">Contribution Chart</h1>
     <div className="flex justify-center">
-    <div className="w-full md:w-[65%] mt-6 px-4 py-6 bg-[#0d1117] rounded-lg border border-[#30363d]">
+    <div className="w-full md:w-[70%] mt-6 px-4 py-6 bg-[#0d1117] rounded-lg border border-[#30363d]">
       <div className="text-sm font-semibold text-center text-gray-300 mb-4">
         {total} contributions in the last year
       </div>

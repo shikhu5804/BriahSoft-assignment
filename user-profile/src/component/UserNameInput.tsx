@@ -21,7 +21,7 @@ export default function UsernameInput({ onFetchRepos }: Props) {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <Button type="submit">Fetch</Button>
+      <Button type="submit">Search</Button>
     </form>
   );
 }
